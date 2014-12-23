@@ -16,13 +16,43 @@ function generateRandom(min, max){
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function generateRandomArray(size){
+    var array = [];
+    for(var i = 0; i < size; i++){
+        array.push(generateRandom());
+    }
+    return array;
+}
+
 function sum(array){
     return array.reduce(function(a, b){
         return a + b;
     });
 }
 
-function generateRandomChessField(){
-    var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
-    return (letters[generateRandom(0, 8)].toUpperCase() + generateRandom(1, 9)).toString();
+// Chess related section
+var chessField = {
+    letters: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'],
+    random: function(){
+        return (this.letters[generateRandom(0, 8)] + generateRandom(1, 9)).toString();
+    },
+    getLetterAsNumber: function(field){
+        if(/^[a-hA-H]\d$/.test(field)){
+            return parseInt(this.letters.indexOf(field.charAt(0).toLowerCase()));
+        }
+    },
+    getDigitAsNumber: function(field){
+        if(/^[a-hA-H]\d$/.test(field)){
+            return parseInt(field.charAt(1));
+        }
+    },
+    digitalize: function(field){
+        return (this.getLetterAsNumber(field) + 1) + this.getDigitAsNumber(field);
+    },
+    getAsArray: function(field){
+        return [this.getLetterAsNumber(field) + 1, this.getDigitAsNumber(field)];
+    },
+    numberize: function(field){
+        return (this.getLetterAsNumber(field) * 8) + this.getDigitAsNumber(field);
+    }
 }
