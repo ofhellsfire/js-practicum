@@ -436,3 +436,116 @@ function task19(){
 
 task19();
 console.log("========");
+
+/*
+ *  1.20 Даны координаты трех полей шахматной доски. Необходимо определить, имеют ли эти поля одинаковый цвет.
+ */
+function task20(){
+    console.log("1.20 Даны координаты трех полей шахматной доски. Необходимо определить, имеют ли эти поля одинаковый цвет.");
+    var field1 = chessField.random().toLowerCase();
+    var field2 = chessField.random().toLowerCase();
+    var field3 = chessField.random().toLowerCase();
+
+    console.log("Chess Field 1 = " + field1, "Chess Field 2 = " + field2, "Chess Field 3 = " + field3);
+
+    var colorCode1 = (field1.charCodeAt(0) + field1.charCodeAt(1)) % 2;
+    var colorCode2 = (field2.charCodeAt(0) + field2.charCodeAt(1)) % 2;
+    var colorCode3 = (field3.charCodeAt(0) + field3.charCodeAt(1)) % 2;
+
+    if( colorCode1 === colorCode2 &&
+        colorCode1 === colorCode3 &&
+        colorCode1 !== null) {
+        console.log("Все поля " + field1 + ", " + field2 + ", " + field3 +  " имеют одинаковый цвет")
+    } else {
+        console.log("Поля " + field1 + ", " + field2 + ", " + field3 +  " НЕ имеют одинаковый цвет")
+    }
+}
+
+task20();
+console.log("========");
+
+/*
+ *  1.21 Даны коэффициенты биквадратного уравнения: A, B и С. Необходимо найти корни этого уравнения.
+ */
+function task21(){
+    console.log("1.21 Даны коэффициенты биквадратного уравнения: A, B и С. Необходимо найти корни этого уравнения.");
+    var a = 1;
+    var b = -4;
+    var c = 1;
+
+    console.log("A = " + a, "B = " + b, "C = " + c);
+
+    var d = Math.sqrt(Math.pow(b, 2) - 4 * a * c);
+
+    if(isNaN(d)){
+        console.log("Квадратное уравнение имеет комплексные корни");
+    } else if(d === 0){
+        console.log("Корень квадратного уравнения " +
+                "x1 = " + parseFloat(Math.sqrt(-b / 2 * a)),
+                "x2 = " + parseFloat(-(Math.sqrt(-b / 2 * a)))
+        );
+    } else {
+        console.log("Корни квадратного уравнения " +
+                "x1 = " + parseFloat(Math.sqrt((-b + d) / 2 * a)),
+                "x2 = " + parseFloat(-(Math.sqrt((-b + d) / 2 * a))),
+                "x3 = " + parseFloat(Math.sqrt((-b - d) / 2 * a)),
+                "x4 = " + parseFloat(-(Math.sqrt((-b - d) / 2 * a)))
+        );
+    }
+}
+
+task21();
+console.log("========");
+
+/*
+ *  1.22 Дано пятизначное число. Необходимо получить число, которое получается перестановкой цифр исходного в обратном порядке.
+ */
+function task22(){
+    console.log("1.22 Дано пятизначное число. Необходимо получить число, которое получается перестановкой цифр исходного в обратном порядке.");
+    var num = generateRandom(10000, 99999);
+
+    console.log("Number = " + num);
+
+    var n = 0;
+    while(num > 0){
+        n = n * 10 + (num % 10);
+        num = Math.floor(num / 10);
+    }
+
+    console.log("Число которое получается перестановкой цифр " + n);
+}
+
+task22();
+console.log("========");
+
+/*
+ *  1.23 Дано пятизначное число. Необходимо проверить, образуют ли цифры этого числа, стоящие на нечетных позициях, возрастающую последовательность.
+ */
+function task23(){
+    console.log("1.23 Дано пятизначное число. Необходимо проверить, образуют ли цифры этого числа, стоящие на нечетных позициях, возрастающую последовательность.");
+    var num = generateRandom(10000, 99999);
+    var digits = digitalize(num);
+
+    console.log("Number = " + num);
+
+    var odds = digits.filter(function(val, i){
+        return (i + 1) % 2 !== 0;
+    });
+
+    console.log("Odd numbers = " + odds);
+
+    for(var i = 0; i < odds.length; i++){
+        if(i + 1 === odds.length){
+            console.log("Цифры числа " + num + ", стоящие на нечетных позициях, образует возрастающую последовательность");
+            break;
+        }
+
+        if(odds[i] >= odds[i + 1]){
+            console.log("Цифры числа " + num + ", стоящие на нечетных позициях, НЕ образует возрастающую последовательность");
+            break;
+        }
+    }
+}
+
+task23();
+console.log("========");
