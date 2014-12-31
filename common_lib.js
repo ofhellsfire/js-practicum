@@ -56,3 +56,12 @@ var chessField = {
         return (this.getLetterAsNumber(field) * 8) + this.getDigitAsNumber(field);
     }
 }
+
+Array.prototype.equals = function(array){
+    for(var i=0;i<this.length;i++){
+        if(this[i] !== array[i]){
+            return false;
+        }
+        return true;
+    }
+}

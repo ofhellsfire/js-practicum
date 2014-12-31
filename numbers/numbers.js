@@ -469,9 +469,9 @@ console.log("========");
  */
 function task21(){
     console.log("1.21 Даны коэффициенты биквадратного уравнения: A, B и С. Необходимо найти корни этого уравнения.");
-    var a = 1;
-    var b = -4;
-    var c = 1;
+    var a = generateRandom(-10,10);
+    var b = generateRandom(-10,10);
+    var c = generateRandom(-10,10);
 
     console.log("A = " + a, "B = " + b, "C = " + c);
 
@@ -485,11 +485,19 @@ function task21(){
                 "x2 = " + parseFloat(-(Math.sqrt(-b / 2 * a)))
         );
     } else {
+        var x1 = Math.sqrt((-b + d) / 2 * a);
+        var x2 = (-(Math.sqrt((-b + d) / 2 * a)));
+        var x3 = Math.sqrt((-b - d) / 2 * a);
+        var x4 = (-(Math.sqrt((-b - d) / 2 * a)));
+        if(isNaN(x1)) x1 = "комплексный корень";
+        if(isNaN(x2)) x2 = "комплексный корень";
+        if(isNaN(x3)) x3 = "комплексный корень";
+        if(isNaN(x4)) x4 = "комплексный корень";
         console.log("Корни квадратного уравнения " +
-                "x1 = " + parseFloat(Math.sqrt((-b + d) / 2 * a)),
-                "x2 = " + parseFloat(-(Math.sqrt((-b + d) / 2 * a))),
-                "x3 = " + parseFloat(Math.sqrt((-b - d) / 2 * a)),
-                "x4 = " + parseFloat(-(Math.sqrt((-b - d) / 2 * a)))
+                "x1 = " + x1,
+                "x2 = " + x2,
+                "x3 = " + x3,
+                "x4 = " + x4
         );
     }
 }
@@ -548,4 +556,116 @@ function task23(){
 }
 
 task23();
+console.log("========");
+
+/*
+ *  1.24 Дано натуральное число меньшее 256. Необходимо проверить, равенство первых и последних 4 бит этого числа.
+ */
+function task24(){
+    console.log("1.24 Дано натуральное число меньшее 256. Необходимо проверить, равенство первых и последних 4 бит этого числа.");
+    var num = generateRandom(1, 256);
+    //num = 255;
+    var digits = digitalize(num, 2);
+
+    console.log("Number = " + num, "Двоичное представление = " + digits.toString());
+
+    var leftBits = digits.slice(0, 4);
+    var rightBits = digits.slice(-4);
+
+    if(digits.length < 8){
+        console.log("Количество бит числа " + num + " меньше 8");
+    } else {
+        if(leftBits.equals(rightBits)){
+            console.log("Первые и последние 4 бит числа " + num + " равны");
+        } else {
+            console.log("Первые и последние 4 бит числа " + num + " НЕ равны");
+        }
+    }
+}
+
+task24();
+console.log("========");
+
+/*
+ *  1.25 Дано четырехзначное число. Необходимо определить есть ли среди цифр этого числа хотя бы две одинаковых.
+ */
+function task25(){
+    console.log("1.25 Дано четырехзначное число. Необходимо определить есть ли среди цифр этого числа хотя бы две одинаковых.");
+    var num = generateRandom(1000, 9999);
+    var digits = digitalize(num);
+
+    console.log("Number = " + num);
+
+    var unique = digits.filter(function(val, i, self){
+        return self.indexOf(val) === i;
+    });
+
+    console.log("Initial Array = " + digits, "Unique Array = " + unique);
+
+    if(digits.length !== unique.length){
+        console.log("Число " + num + " содержит хотя бы две одинаковых цифры");
+    } else {
+        console.log("Все цифры числа " + num + " различны");
+    }
+}
+
+task25();
+console.log("========");
+
+/*
+ *  1.26 Дано натуральное число меньшее 256. Необходимо найти сумму всех четных битов этого числа.
+ */
+function task26(){
+    console.log("1.26 Дано натуральное число меньшее 256. Необходимо найти сумму всех четных битов этого числа.");
+    var num = generateRandom(2, 256);
+    var digits = digitalize(num, 2);
+
+    console.log("Number = " + num, "Двоичное представление = " + digits.toString());
+
+    var evenBits = digits.reverse().filter(function(val, i){
+        return (i + 1) % 2 === 0;
+    });
+
+    var oddBitsSum = evenBits.reduce(function(a,b){return a + b});
+    console.log("Сумма всех нечетных битов числа " + num + " = " + oddBitsSum);
+}
+
+task26();
+console.log("========");
+
+/*
+ *  1.27 Даны коэффициенты биквадратного уравнения: A, B и С. Необходимо найти произведение корней этого уравнения.
+ */
+function task27(){
+    console.log("1.27 Даны коэффициенты биквадратного уравнения: A, B и С. Необходимо найти произведение корней этого уравнения.");
+    var a = generateRandom(-10,10);
+    var b = generateRandom(-10,10);
+    var c = generateRandom(-10,10);
+    var mult;
+
+    console.log("A = " + a, "B = " + b, "C = " + c);
+
+    var d = Math.sqrt(Math.pow(b, 2) - 4 * a * c);
+
+    if(isNaN(d)){
+        console.log("Квадратное уравнение имеет комплексные корни");
+    } else {
+        if(d === 0) {
+            mult = Math.sqrt(-b / 2 * a) * (-(Math.sqrt(-b / 2 * a)));
+        } else {
+            var x1 = Math.sqrt((-b + d) / 2 * a);
+            var x2 = (-(Math.sqrt((-b + d) / 2 * a)));
+            var x3 = Math.sqrt((-b - d) / 2 * a);
+            var x4 = (-(Math.sqrt((-b - d) / 2 * a)));
+            if(isNaN(x1)) x1 = 1;
+            if(isNaN(x2)) x2 = 1;
+            if(isNaN(x3)) x3 = 1;
+            if(isNaN(x4)) x4 = 1;
+            mult = x1 * x2 * x3 * x4;
+        }
+        console.log("Произведение корней уравнения = " + mult);
+    }
+}
+
+task27();
 console.log("========");
