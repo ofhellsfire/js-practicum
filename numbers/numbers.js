@@ -8,6 +8,7 @@ function task01(number){
 
     var digits = digitalize(number,10);
     var armstrongFormula = 0;
+
     digits.forEach(function(el){
         armstrongFormula += Math.pow(el,digits.length);
     });
@@ -27,14 +28,14 @@ console.log("========");
 /*
  *  1.2 Идет k-я секунда года. Необходимо определить сколько полных месяцев и полных недель осталось до конца года.
  */
-function task02(){
+function task02(sec){
     console.log("1.2 Идет k-я секунда года. Необходимо определить сколько полных месяцев и полных недель осталось до конца года.");
     var DAY = 60 * 60 * 24;
     var WEEK = DAY * 7;
     var YEAR = DAY * 365;
     var daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // Only for 365 days
 
-    var sec = generateRandom(1,YEAR);
+    var sec = sec || generateRandom(1, YEAR);
     console.log("Seconds = " + sec, "Seconds In Year = " + YEAR);
 
     console.log("Осталось " + (52 - Math.floor(sec / WEEK)) + " полных недель до конца года");
@@ -55,10 +56,10 @@ console.log("========");
 /*
  *  1.3 Даны два числа. Необходимо найти их среднее геометрическое.
  */
-function task03(){
+function task03(a, b){
     console.log("1.3 Даны два числа. Необходимо найти их среднее геометрическое.");
-    var a = generateRandom();
-    var b = generateRandom();
+    var a = a || generateRandom();
+    var b = b || generateRandom();
     console.log("a = " + a, "b = " + b);
     var avg = Math.sqrt(a * b);
     console.log("Среднее геометрическое: " + avg);
@@ -70,9 +71,9 @@ console.log("========");
 /*
  *  1.4 Дано целое шестизначное число. Необходимо определить, является ли оно счастливым.
  */
-function task04(){
+function task04(num){
     console.log("1.4 Дано целое шестизначное число. Необходимо определить, является ли оно счастливым.");
-    var num = generateRandom(100000, 999999);
+    var num = num || generateRandom(100000, 999999);
     var digits = digitalize(num);
 
     console.log("Number = " + num);
@@ -95,9 +96,9 @@ console.log("========");
 /*
  *  1.5 Дано трехзначное число. Необходимо проверить, образуют ли цифры этого числа возрастающую последовательность.
  */
-function task05(){
+function task05(num){
     console.log("1.5 Дано трехзначное число. Необходимо проверить, образуют ли цифры этого числа возрастающую последовательность.");
-    var num = generateRandom(100, 999);
+    var num = num || generateRandom(100, 999);
     var digits = digitalize(num);
 
     console.log("Number = " + num);
@@ -121,9 +122,9 @@ console.log("========");
 /*
  *  1.6 Дано натуральное число меньшее 512. Необходимо проверить, является ли оно счастливым в двоичном представлении.
  */
-function task06(){
+function task06(num){
     console.log("1.6 Дано натуральное число меньшее 512. Необходимо проверить, является ли оно счастливым в двоичном представлении.");
-    var num = generateRandom(1, 512);
+    var num = num || generateRandom(1, 512);
     var digits = digitalize(num, 2);
 
     console.log("Number = " + num, "Двоичное представление = " + digits.toString());
@@ -149,10 +150,10 @@ console.log("========");
 /*
  *  1.7 Даны координаты некоторой точки A (на плоскости). Необходимо найти расстояние от точки A до начала координат.
  */
-function task07(){
+function task07(x, y){
     console.log("1.7 Даны координаты некоторой точки A (на плоскости). Необходимо найти расстояние от точки A до начала координат.");
-    var x = generateRandom(1, 20);
-    var y = generateRandom(1, 20);
+    var x = x || generateRandom(1, 20);
+    var y = y || generateRandom(1, 20);
 
     console.log("X = " + x, "Y = " + y);
 
@@ -166,11 +167,11 @@ console.log("========");
 /*
  *  1.8 Даны коэффициенты линейного уравнения: A и B . Необходимо найти корень этого уравнения.
  */
-function task08(){
+function task08(a, b){
     console.log("1.8 Даны коэффициенты линейного уравнения: A и B . Необходимо найти корень этого уравнения.");
 
-    var a = generateRandom(-100, 100);
-    var b = generateRandom(-100, 100);
+    var a = a || generateRandom(-100, 100);
+    var b = b || generateRandom(-100, 100);
 
     console.log("A = " + a, "B = " + b);
 
@@ -184,9 +185,9 @@ console.log("========");
 /*
  *  1.9 Дано трехзначное число. Необходимо проверить, образуют ли цифры этого числа убывающую последовательность.
  */
-function task09(){
+function task09(num){
     console.log("1.9 Дано трехзначное число. Необходимо проверить, образуют ли цифры этого числа убывающую последовательность.");
-    var num = generateRandom(100, 999);
+    var num = num || generateRandom(100, 999);
     var digits = digitalize(num);
 
     console.log("Number = " + num);
@@ -210,9 +211,9 @@ console.log("========");
 /*
  *  1.10 Дано четырехзначное число. Необходимо проверить, различны ли все четыре цифры этого числа.
  */
-function task10(){
+function task10(num){
     console.log("1.10 Дано четырехзначное число. Необходимо проверить, различны ли все четыре цифры этого числа.");
-    var num = generateRandom(1000, 9999);
+    var num = num || generateRandom(1000, 9999);
     var digits = digitalize(num);
 
     console.log("Number = " + num);
@@ -236,10 +237,10 @@ console.log("========");
 /*
  *  1.11 Даны координаты двух полей шахматной доски. Необходимо определить, имеют ли эти поля одинаковый цвет.
  */
-function task11(){
+function task11(f1, f2){
     console.log("1.11 Даны координаты двух полей шахматной доски. Необходимо определить, имеют ли эти поля одинаковый цвет.");
-    var field1 = chessField.random().toLowerCase();
-    var field2 = chessField.random().toLowerCase();
+    var field1 = f1 || chessField.random().toLowerCase();
+    var field2 = f2 || chessField.random().toLowerCase();
 
     console.log("Chess Field 1 = " + field1, "Chess Field 2 = " + field2);
 
@@ -256,9 +257,9 @@ console.log("========");
 /*
  *  1.12 Дано трехзначное число. Необходимо определить есть ли среди цифр этого числа хотя бы две одинаковых.
  */
-function task12(){
+function task12(num){
     console.log("1.12 Дано трехзначное число. Необходимо определить есть ли среди цифр этого числа хотя бы две одинаковых.");
-    var num = generateRandom(100, 999);
+    var num = num || generateRandom(100, 999);
     var digits = digitalize(num);
 
     console.log("Number = " + num);
@@ -282,9 +283,9 @@ console.log("========");
 /*
  *  1.13 Дано натуральное число меньшее 256. Необходимо найти сумму всех нечетных битов этого числа.
  */
-function task13(){
+function task13(num){
     console.log("1.13 Дано натуральное число меньшее 256. Необходимо найти сумму всех нечетных битов этого числа.");
-    var num = generateRandom(2, 256);
+    var num = num || generateRandom(2, 256);
     var digits = digitalize(num, 2);
 
     console.log("Number = " + num, "Двоичное представление = " + digits.toString());
@@ -303,13 +304,13 @@ console.log("========");
 /*
  *  1.14 Идет k-я секунда суток. Необходимо определить сколько полных часов и полных минут прошло с начала суток.
  */
-function task14(){
+function task14(sec){
     console.log("1.14 Идет k-я секунда суток. Необходимо определить сколько полных часов и полных минут прошло с начала суток.");
     var MINUTE = 60;
     var HOUR = 60 * 60;
     var DAY = HOUR * 24;
 
-    var sec = generateRandom(1, DAY);
+    var sec = sec || generateRandom(1, DAY);
     console.log("Seconds = " + sec, "Seconds In A Day = " + DAY);
 
     var cHour = Math.floor(sec / HOUR);
@@ -325,9 +326,9 @@ console.log("========");
 /*
  *  1.15 Дано целое число. Необходимо определить, является ли оно четным.
  */
-function task15(){
+function task15(num){
     console.log("1.15 Дано целое число. Необходимо определить, является ли оно четным.");
-    var num = generateRandom(0, 100);
+    var num = num || generateRandom(0, 100);
     console.log("Number = " + num);
 
     if(num % 2 === 0){
@@ -343,9 +344,9 @@ console.log("========");
 /*
  *  1.16 Даны три числа. Необходимо найти их среднее геометрическое.
  */
-function task16(){
+function task16(numbers){
     console.log("1.16 Даны три числа. Необходимо найти их среднее геометрическое.");
-    var numbers = generateRandomArray(3);
+    var numbers = numbers || generateRandomArray(3);
 
     console.log("Number = " + numbers.toString());
 
@@ -362,10 +363,10 @@ console.log("========");
 /*
  *  1.17 Даны координаты двух полей шахматной доски. Необходимо определить, может ли конь добраться из одного поля в другое за один ход.
  */
-function task17(){
+function task17(f1, f2){
     console.log("1.17 Даны координаты двух полей шахматной доски. Необходимо определить, может ли конь добраться из одного поля в другое за один ход.");
-    var field1 = chessField.random().toLowerCase();
-    var field2 = chessField.random().toLowerCase();
+    var field1 = f1 || chessField.random().toLowerCase();
+    var field2 = f2 || chessField.random().toLowerCase();
 
     console.log("Chess Field 1 = " + field1, "Chess Field 2 = " + field2);
 
@@ -385,11 +386,11 @@ console.log("========");
 /*
  *  1.18 Даны коэффициенты квадратного уравнения: A, B и С. Необходимо найти корни этого уравнения.
  */
-function task18(){
+function task18(a, b, c){
     console.log("1.18 Даны коэффициенты квадратного уравнения: A, B и С. Необходимо найти корни этого уравнения.");
-    var a = generateRandom(-100,100);
-    var b = generateRandom(-100,100);
-    var c = generateRandom(-100,100);
+    var a = a || generateRandom(-100,100);
+    var b = b || generateRandom(-100,100);
+    var c = c || generateRandom(-100,100);
 
     console.log("A = " + a, "B = " + b, "C = " + c);
 
@@ -410,9 +411,9 @@ console.log("========");
 /*
  *  1.19 Дано целое четырехзначное число. Необходимо проверить является ли оно счастливым.
  */
-function task19(){
+function task19(num){
     console.log("1.19 Дано целое четырехзначное число. Необходимо проверить является ли оно счастливым.");
-    var num = ""+generateRandom(1000, 9999);
+    var num = "" + num || "" + generateRandom(1000, 9999);
 
     console.log("Number = " + num);
 
@@ -440,11 +441,11 @@ console.log("========");
 /*
  *  1.20 Даны координаты трех полей шахматной доски. Необходимо определить, имеют ли эти поля одинаковый цвет.
  */
-function task20(){
+function task20(f1, f2, f3){
     console.log("1.20 Даны координаты трех полей шахматной доски. Необходимо определить, имеют ли эти поля одинаковый цвет.");
-    var field1 = chessField.random().toLowerCase();
-    var field2 = chessField.random().toLowerCase();
-    var field3 = chessField.random().toLowerCase();
+    var field1 = f1 || chessField.random().toLowerCase();
+    var field2 = f2 || chessField.random().toLowerCase();
+    var field3 = f3 || chessField.random().toLowerCase();
 
     console.log("Chess Field 1 = " + field1, "Chess Field 2 = " + field2, "Chess Field 3 = " + field3);
 
@@ -467,11 +468,11 @@ console.log("========");
 /*
  *  1.21 Даны коэффициенты биквадратного уравнения: A, B и С. Необходимо найти корни этого уравнения.
  */
-function task21(){
+function task21(a, b, c){
     console.log("1.21 Даны коэффициенты биквадратного уравнения: A, B и С. Необходимо найти корни этого уравнения.");
-    var a = generateRandom(-10,10);
-    var b = generateRandom(-10,10);
-    var c = generateRandom(-10,10);
+    var a = a || generateRandom(-10,10);
+    var b = b || generateRandom(-10,10);
+    var c = c || generateRandom(-10,10);
 
     console.log("A = " + a, "B = " + b, "C = " + c);
 
@@ -508,9 +509,9 @@ console.log("========");
 /*
  *  1.22 Дано пятизначное число. Необходимо получить число, которое получается перестановкой цифр исходного в обратном порядке.
  */
-function task22(){
+function task22(num){
     console.log("1.22 Дано пятизначное число. Необходимо получить число, которое получается перестановкой цифр исходного в обратном порядке.");
-    var num = generateRandom(10000, 99999);
+    var num = num || generateRandom(10000, 99999);
 
     console.log("Number = " + num);
 
@@ -529,9 +530,9 @@ console.log("========");
 /*
  *  1.23 Дано пятизначное число. Необходимо проверить, образуют ли цифры этого числа, стоящие на нечетных позициях, возрастающую последовательность.
  */
-function task23(){
+function task23(num){
     console.log("1.23 Дано пятизначное число. Необходимо проверить, образуют ли цифры этого числа, стоящие на нечетных позициях, возрастающую последовательность.");
-    var num = generateRandom(10000, 99999);
+    var num = num || generateRandom(10000, 99999);
     var digits = digitalize(num);
 
     console.log("Number = " + num);
@@ -561,10 +562,9 @@ console.log("========");
 /*
  *  1.24 Дано натуральное число меньшее 256. Необходимо проверить, равенство первых и последних 4 бит этого числа.
  */
-function task24(){
+function task24(num){
     console.log("1.24 Дано натуральное число меньшее 256. Необходимо проверить, равенство первых и последних 4 бит этого числа.");
-    var num = generateRandom(1, 256);
-    //num = 255;
+    var num = num || generateRandom(1, 256);
     var digits = digitalize(num, 2);
 
     console.log("Number = " + num, "Двоичное представление = " + digits.toString());
@@ -589,9 +589,9 @@ console.log("========");
 /*
  *  1.25 Дано четырехзначное число. Необходимо определить есть ли среди цифр этого числа хотя бы две одинаковых.
  */
-function task25(){
+function task25(num){
     console.log("1.25 Дано четырехзначное число. Необходимо определить есть ли среди цифр этого числа хотя бы две одинаковых.");
-    var num = generateRandom(1000, 9999);
+    var num = num || generateRandom(1000, 9999);
     var digits = digitalize(num);
 
     console.log("Number = " + num);
@@ -615,9 +615,9 @@ console.log("========");
 /*
  *  1.26 Дано натуральное число меньшее 256. Необходимо найти сумму всех четных битов этого числа.
  */
-function task26(){
+function task26(num){
     console.log("1.26 Дано натуральное число меньшее 256. Необходимо найти сумму всех четных битов этого числа.");
-    var num = generateRandom(2, 256);
+    var num = num || generateRandom(2, 256);
     var digits = digitalize(num, 2);
 
     console.log("Number = " + num, "Двоичное представление = " + digits.toString());
@@ -627,7 +627,7 @@ function task26(){
     });
 
     var oddBitsSum = evenBits.reduce(function(a,b){return a + b});
-    console.log("Сумма всех нечетных битов числа " + num + " = " + oddBitsSum);
+    console.log("Сумма всех четных битов числа " + num + " = " + oddBitsSum);
 }
 
 task26();
@@ -636,11 +636,11 @@ console.log("========");
 /*
  *  1.27 Даны коэффициенты биквадратного уравнения: A, B и С. Необходимо найти произведение корней этого уравнения.
  */
-function task27(){
+function task27(a, b, c){
     console.log("1.27 Даны коэффициенты биквадратного уравнения: A, B и С. Необходимо найти произведение корней этого уравнения.");
-    var a = generateRandom(-10,10);
-    var b = generateRandom(-10,10);
-    var c = generateRandom(-10,10);
+    var a = a || generateRandom(-10,10);
+    var b = b || generateRandom(-10,10);
+    var c = c || generateRandom(-10,10);
     var mult;
 
     console.log("A = " + a, "B = " + b, "C = " + c);
@@ -668,4 +668,331 @@ function task27(){
 }
 
 task27();
+console.log("========");
+
+/*
+ *  1.28 Дано натуральное число меньшее 16. Необходимо проверить, является ли оно двоичным палиндромом.
+ */
+function task28(num){
+    console.log("1.28 Дано натуральное число меньшее 16. Необходимо проверить, является ли оно двоичным палиндромом.");
+    var num = num || generateRandom(2, 16);
+    var digits = digitalize(num, 2);
+
+    console.log("Number = " + num, "Двоичное представление = " + digits.toString());
+
+    var origin = digits.slice();
+    digits.reverse();
+
+    if(digits.equals(origin)){
+        console.log("Число " + num + " является двоичным палиндромом");
+    } else {
+        console.log("Число " + num + " НЕ является двоичным палиндромом");
+    }
+}
+
+task28();
+console.log("========");
+
+/*
+ *  1.29 Даны координаты двух полей шахматной доски. Необходимо определить, может ли слон добраться из одного поля в другое за один ход.
+ */
+function task29(f1, f2){
+    console.log("1.29 Даны координаты двух полей шахматной доски. Необходимо определить, может ли слон добраться из одного поля в другое за один ход.");
+    var field1 = f1 || chessField.random().toLowerCase();
+    var field2 = f2 || chessField.random().toLowerCase();
+
+    console.log("Chess Field 1 = " + field1, "Chess Field 2 = " + field2);
+
+    console.log("Dx = " + Math.abs(field1.charCodeAt(0) - field2.charCodeAt(0)));
+    console.log("Dy = " + Math.abs(field1.charCodeAt(1) - field2.charCodeAt(1)));
+
+    if(Math.abs(field1.charCodeAt(0) - field2.charCodeAt(0)) === Math.abs(field1.charCodeAt(1) - field2.charCodeAt(1))) {
+        console.log("Слон сможет добраться из поля " + field1 + " в поле " + field2 + " за один ход")
+    } else {
+        console.log("Слон НЕ сможет добраться из поля " + field1 + " в поле " + field2 + " за один ход")
+    }
+}
+
+task29();
+console.log("========");
+
+/*
+ *  1.30 Даны три числа. Необходимо найти их среднее арифметическое.
+ */
+function task30(numbers){
+    console.log("1.30 Даны три числа. Необходимо найти их среднее арифметическое.");
+    var numbers = numbers || generateRandomArray(3);
+
+    console.log("Number = " + numbers.toString());
+
+    var sum = numbers.reduce(function(a, b){
+        return a + b;
+    });
+
+    var mean = sum / numbers.length;
+
+    console.log("Среднее арифметическое чисел " + numbers.toString() + " = " + mean);
+}
+
+task30();
+console.log("========");
+
+/*
+ *  1.31 Дано трехзначное число. Необходимо определить есть ли среди цифр этого числа ровно две одинаковых.
+ */
+function task31(num){
+    console.log("1.31 Дано трехзначное число. Необходимо определить есть ли среди цифр этого числа ровно две одинаковых.");
+    var num = num || generateRandom(100, 999);
+    var digits = digitalize(num);
+
+    console.log("Number = " + num);
+
+    var unique = digits.filter(function(val, i, self){
+        return self.indexOf(val) === i;
+    });
+
+    console.log("Initial Array = " + digits, "Unique Array = " + unique);
+
+    if(digits.length - 1 === unique.length){
+        console.log("Число " + num + " содержит ровно две одинаковых цифры");
+    } else {
+        console.log("Число " + num + " НЕ содержит ровно две одинаковых цифры");
+    }
+}
+
+task31();
+console.log("========");
+
+/*
+ *  1.32 Дано четырехзначное целое число. Необходимо проверить, является ли оно счастливым.
+ */
+function task32(num){
+    console.log("1.32 Дано четырехзначное целое число. Необходимо проверить, является ли оно счастливым.");
+    var num = num || generateRandom(1000, 9999);
+    var digits = digitalize(num);
+
+    console.log("Number = " + num);
+
+    var leftSum = sum(digits.slice(0, Math.floor(digits.length / 2)));
+    var rightSum = sum(digits.slice(Math.floor(digits.length / 2), digits.length));
+
+    if(digits.length % 2 !== 0 || leftSum !== rightSum){
+        console.log("Число " + num + " не является счастливым");
+    } else {
+        console.log("Число " + num + " является счастливым");
+    }
+
+    console.log("Сумма левой части: " + leftSum, "Сумма правой части: " + rightSum);
+}
+
+task32();
+console.log("========");
+
+/*
+ *  1.33 Дано трехзначное число. Необходимо получить число, которое получается перестановкой цифр исходного в обратном порядке.
+ */
+function task33(num){
+    console.log("1.33 Дано трехзначное число. Необходимо получить число, которое получается перестановкой цифр исходного в обратном порядке.");
+    var num = num || generateRandom(100, 999);
+
+    console.log("Number = " + num);
+
+    var n = 0;
+    while(num > 0){
+        n = n * 10 + (num % 10);
+        num = Math.floor(num / 10);
+    }
+
+    console.log("Число которое получается перестановкой цифр " + n);
+}
+
+task33();
+console.log("========");
+
+/*
+ *  1.34 Дано четырехзначное целое число. Необходимо проверить, является ли оно палиндромом.
+ */
+function task34(num){
+    console.log("1.34 Дано четырехзначное целое число. Необходимо проверить, является ли оно палиндромом.");
+    var num = num || generateRandom(1000, 9999);
+    var digits = digitalize(num);
+
+    console.log("Number = " + num);
+
+    var origin = digits.slice();
+    digits.reverse();
+
+    if(digits.equals(origin)){
+        console.log("Число " + num + " является палиндромом");
+    } else {
+        console.log("Число " + num + " НЕ является палиндромом");
+    }
+}
+
+task34();
+console.log("========");
+
+/*
+ *  1.35 Дано натуральное число меньшее 256. Необходимо проверить, является ли оно счастливым в двоичном представлении.
+ */
+function task35(num){
+    console.log("1.35 Дано натуральное число меньшее 256. Необходимо проверить, является ли оно счастливым в двоичном представлении.");
+    var num = num || generateRandom(2, 256);
+    var digits = digitalize(num, 2);
+
+    console.log("Number = " + num, "Двоичное представление = " + digits.toString());
+
+    var leftSum = sum(digits.slice(0, Math.floor(digits.length / 2)));
+    var rightSum = sum(digits.slice(Math.floor(digits.length / 2), digits.length));
+
+    if(digits.length % 2 === 0){
+        if(leftSum === rightSum){
+            console.log("Число " + num + " является счастливым в двоичном представлении");
+        } else {
+            console.log("Число " + num + " НЕ является счастливым в двоичном представлении");
+        }
+        console.log("Сумма левой части: " + leftSum, "Сумма правой части: " + rightSum);
+    } else {
+        console.log("Число " + num + " имеет нечетное количество цифр в двоичном представлении (" + digits.length + ")");
+    }
+}
+
+task35();
+console.log("========");
+
+/*
+ *  1.36 Даны три числа. Необходимо проверить, образуют ли они убывающую последовательность.
+ */
+function task36(array){
+    console.log("1.36 Даны три числа. Необходимо проверить, образуют ли они убывающую последовательность.");
+    var randomArray = array || generateRandomArray(3);
+    var numbers = randomArray.toString();
+
+    console.log("Numbers = " + numbers);
+
+    for(var i = 0; i < randomArray.length; i++){
+        if(i + 1 === randomArray.length){
+            console.log("Числа " + numbers + " образует убывающую последовательность");
+            break;
+        }
+
+        if(randomArray[i] <= randomArray[i + 1]){
+            console.log("Числа " + numbers + " НЕ образует убывающую последовательность");
+            break;
+        }
+    }
+}
+
+task36();
+console.log("========");
+
+/*
+ *  1.37 Дано шестизначное целое число. Необходимо проверить, является ли оно палиндромом.
+ */
+function task37(num){
+    console.log("1.37 Дано шестизначное целое число. Необходимо проверить, является ли оно палиндромом.");
+    var num = num || generateRandom(100000, 999999);
+    var digits = digitalize(num);
+
+    console.log("Number = " + num);
+
+    var origin = digits.slice();
+    digits.reverse();
+
+    if(digits.equals(origin)){
+        console.log("Число " + num + " является палиндромом");
+    } else {
+        console.log("Число " + num + " НЕ является палиндромом");
+    }
+}
+
+task37();
+console.log("========");
+
+/*
+ *  1.38 Дано целое пятизначное число. Необходимо проверить, является ли оно палиндромом.
+ */
+function task38(num){
+    console.log("1.38 Дано целое пятизначное число. Необходимо проверить, является ли оно палиндромом.");
+    var num = num || generateRandom(10000, 99999);
+    var digits = digitalize(num);
+
+    console.log("Number = " + num);
+
+    var origin = digits.slice();
+    digits.reverse();
+
+    if(digits.equals(origin)){
+        console.log("Число " + num + " является палиндромом");
+    } else {
+        console.log("Число " + num + " НЕ является палиндромом");
+    }
+}
+
+task38();
+console.log("========");
+
+/*
+ *  1.39 Даны три числа. Необходимо проверить, есть ли среди них хотя бы два одинаковых.
+ */
+function task39(array){
+    console.log("1.39 Даны три числа. Необходимо проверить, есть ли среди них хотя бы два одинаковых.");
+    var randomArray = array || generateRandomArray(3);
+    var numbers = randomArray.toString();
+
+    console.log("Number = " + numbers);
+
+    var uniqueArray = randomArray.filter(function(val, i, self){
+        return self.indexOf(val) === i;
+    });
+
+    console.log("Initial Array = " + randomArray, "Unique Array = " + uniqueArray);
+
+    if(randomArray.length !== uniqueArray.length){
+        console.log("Число " + numbers + " содержит хотя бы два одинаковых числа");
+    } else {
+        console.log("Число " + numbers + " НЕ содержит хотя бы два одинаковых числа");
+    }
+}
+
+task39();
+console.log("========");
+
+/*
+ *  1.40 Даны длины катетов прямоугольного треугольника. Необходимо найти длину гипотенузы.
+ */
+function task40(a, b){
+    console.log("1.40 Даны длины катетов прямоугольного треугольника. Необходимо найти длину гипотенузы.");
+    var a = a || generateRandom(1, 20);
+    var b = b || generateRandom(1, 20);
+
+    console.log("A = " + a, "B = " + b);
+
+    var hypotenuse = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+    console.log("Длина гипотенузы = " + hypotenuse);
+}
+
+task40();
+console.log("========");
+
+/*
+ *  1.41 Идет n-я секунда суток. Необходимо определить сколько полных часов и полных минут осталось до конца суток.
+ */
+function task41(sec){
+    console.log("1.41 Идет n-я секунда суток. Необходимо определить сколько полных часов и полных минут осталось до конца суток.");
+    var MINUTE = 60;
+    var HOUR = 60 * 60;
+    var DAY = HOUR * 24;
+
+    var sec = sec || generateRandom(1, DAY);
+    console.log("Seconds = " + sec, "Seconds In A Day = " + DAY);
+
+    var cHour = 23 - Math.floor(sec / HOUR);
+    console.log(cHour + " полных часов осталось до конца суток");
+
+    var cMinute = 59 - Math.floor(sec % HOUR / MINUTE);
+    console.log(cMinute + " полных минут осталось до конца суток");
+}
+
+task41();
 console.log("========");
