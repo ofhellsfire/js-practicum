@@ -75,3 +75,37 @@ Array.prototype.equals = function(array) {
     }
     return true;
 }
+
+Array.prototype.max = function() {
+    var max = this[0];
+    for(var i = 1; i < this.length; i++){
+        if(max < this[i]){
+            max = this[i];
+        }
+    }
+    return max;
+}
+
+Array.prototype.min = function() {
+    var min = this[0];
+    for(var i = 1; i < this.length; i++){
+        if(min > this[i]){
+            min = this[i];
+        }
+    }
+    return min;
+}
+
+Array.prototype.rotate = function(count){
+    var count = count || 1;
+    if(this.length === count || count === 0){
+        return this;
+    } else {
+        var c = count % this.length;
+        if(count > 0){
+            return [].concat(this.slice(-c), this.slice(0, this.length - c));               // rotate to the right
+        } else {
+            return [].concat(this.slice(-c), this.slice(0, -c));                            // rotate to the left
+        }
+    }
+}
