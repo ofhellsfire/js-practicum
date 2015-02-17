@@ -210,12 +210,54 @@ function task10(array1, array2){
     console.log("Array 1 = " + array1.toString());
     console.log("Array 2 = " + array2.toString());
 
-    uniq1 = array1.forEach(function(val, i, self){
-        return self.indexOf(val) === i;
+    var counter = 0;
+    var elements = [];
+
+    var uniq1 = array1.unique();
+    var uniq2 = array2.unique();
+
+    uniq1.forEach(function(val){
+        if(uniq2.indexOf(val) !== -1){
+            counter++;
+            elements.push(val);
+        }
     });
 
-    console.log("Элементы расположенные перед последним минимальным: " + beforeLastMin);
+    console.log("Cовпадающиe по значению элементы: " + elements);
+    console.log("Количество совпадающих по значению элементов: " + counter);
 }
 
-task10([1,2,3,4,5,6,7,8],[9,10,3,11,5,13,1]);
+task10();
+console.log("========");
+
+/*
+ *  1.11 Дан целочисленный массив, в котором лишь один элемент отличается от остальных. Необходимо найти значение этого элемента.
+ */
+function task11(array){
+    console.log("1.11 Дан целочисленный массив, в котором лишь один элемент отличается от остальных. Необходимо найти значение этого элемента.");
+
+    var array = array;
+
+    console.log("Array = " + array.toString());
+
+    var unique;
+
+    for(var i = 0; i < array.length - 1; i++){
+        if(array[i] !== array[i + 1]){
+            if(i === 0 && array[i] !== array[i + 2]){
+                unique = array[i];
+                break;
+            } else {
+                unique = array[i + 1];
+                break;
+            }
+        } else {
+            continue;
+        }
+    }
+
+    console.log("Значение несовпадающего элемента: " + unique);
+}
+
+task11([3,3,5,3,3,3,3,3]);
 console.log("========");

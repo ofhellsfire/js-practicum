@@ -109,3 +109,24 @@ Array.prototype.rotate = function(count){
         }
     }
 }
+
+Array.prototype.unique = function(){
+    var unique = this.filter(function(val, i, self){
+        return self.indexOf(val) === i;
+    });
+    return unique;
+}
+
+Array.prototype.itemCount = function(value){
+    if(this.indexOf(value) === -1){
+        return 0;
+    } else {
+        var count = 0;
+        this.forEach(function(val){
+            if(val === value){
+                count++;
+            }
+        });
+        return count;
+    }
+}
