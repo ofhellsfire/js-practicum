@@ -11,17 +11,17 @@ const inputInterval = '30'
 const expected = [['11:30', '12:00'], ['15:00', '16:00'], ['18:00', '18:30']]
 
 // Helper Functions
-function strTimeToIntTime(item) {
-  const [hour, minutes] = item.split(':')
+function strTimeToIntTime(string) {
+  const [hour, minutes] = string.split(':')
   return parseInt(hour) + (parseInt(minutes) / 60)
 }
 
-function intTimeToStrTime(item) {
-  const mod = item % 1
+function intTimeToStrTime(int) {
+  const mod = int % 1
   if (mod === 0) {
-    return `${item}:00`
+    return `${int}:00`
   } else {
-    let [whole, decimal] = `${item}`.split('.')
+    let [whole, decimal] = `${int}`.split('.')
     decimal = parseInt(decimal)
     decimal = (mod < 10) ? decimal * 10 : decimal
     return `${whole}:${(decimal * 60 / 100).toPrecision(2)}`
